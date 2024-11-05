@@ -1,0 +1,49 @@
+﻿@using ContentTypeUsage.Models
+@using EPiServer.Shell.Navigation
+@using EPiServer.Framework.Web.Resources
+@using Microsoft.AspNetCore.Html
+@model ContentListResult
+
+@{
+    Layout = null;
+}
+
+    <div>
+        <div id="content-list-result">
+            
+            <p>
+                <a href="/contenttypeusage/listcontenttypes/">
+                    Return to contenttype list
+                </a>
+            </p>
+                        
+            <h1>@Model.ContentTypeDisplayName (@Model.ContentTypeName)</h1>
+
+            <p>@Model.NumberOfItems items</p>
+           
+            <ul>
+
+            @foreach (var item in Model.ContentList)
+            {
+                <li class="content-item">
+
+                    <div>@item.Name</div>
+
+                    <div><a href="@item.Url" target="_blank">@item.Path</a></div>
+
+                    @if (!string.IsNullOrEmpty(item.AssetOwnerUrl))
+                    {
+                        <div>
+                            Asset for:
+                            <a href="@item.AssetOwnerUrl" target="_blank">@item.AssetOwnerName</a>
+                        </div>
+                    }
+
+                </li>
+            }
+
+            </ul>
+
+        </div>
+
+    </div>

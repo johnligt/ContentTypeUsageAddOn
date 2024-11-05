@@ -1,0 +1,106 @@
+@using ContentTypeUsage.Models
+@using EPiServer.Shell.Navigation
+@using EPiServer.Framework.Web.Resources
+@using Microsoft.AspNetCore.Html
+@model List<ContentTypeDisplayModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contenttype Usage</title>
+    <!-- Shell -->
+    @ClientResources.RenderResources("ShellCore")
+
+    <!-- LightTheme -->
+    @ClientResources.RenderResources("ShellCoreLightTheme")
+
+    <style>
+        .page-content {
+            padding: 20px;
+        }
+
+        .link-to-result {
+            cursor: pointer;
+        }
+
+        #content-list-result {
+            font-size: 12px;
+            line-height: 20px;
+        }
+
+        h1 {
+            padding-top: 50px;
+        }
+
+        .content-item {
+            padding: 8px;
+            background-color: white;
+            margin-bottom: 8px;
+            border-block-color: black;
+            border-style: solid;
+            border-width: 1px;
+            max-width: 400px;
+        }
+    </style>
+
+    <script>
+
+        var ContentTypeUsage = (function () {
+
+            function listContentOfContentType(selectedId) {
+
+                console.log(selectedId);
+
+                const xhttp = new XMLHttpRequest();
+
+                xhttp.onload = function () {
+                    document.getElementById("result-area").innerHTML =
+                        this.responseText;
+                }
+
+                xhttp.open("GET", "/contenttypeusage/listcontentofcontenttype/" + selectedId);
+                xhttp.send();
+            }
+
+            return {
+                listContentOfContentType: listContentOfContentType
+            }
+
+        })();
+
+    </script>
+
+</head>
+
+<body>
+    @Html.AntiForgeryToken()
+    @Html.CreatePlatformNavigationMenu()
+
+    <div @Html.ApplyPlatformNavigation()>
+
+        <div class="page-content">
+
+            <h1>Contenttype usage</h1>
+
+            <div id="result-area">
+
+                <h2>Contenttypes</h2>
+
+                <ul>
+                    @foreach (var contentType in Model)
+                    {
+                        <li class="content-item">
+                            <span onclick="ContentTypeUsage.listContentOfContentType(@contentType.Id);return false;"
+                                  class="link-to-result">@contentType.Name</span>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

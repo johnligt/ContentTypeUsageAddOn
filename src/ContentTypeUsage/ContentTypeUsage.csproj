@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+		<Title>Optimizely ContentType Usage add-on</Title>
+		<Version>0.1.0.1</Version>
+		<PackageReleaseNotes>ContentType Usage add-on for Optimizely CMS 12</PackageReleaseNotes>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>Optimizely</PackageTags>
+		<RepositoryUrl>https://github.com/johnligt/ContentTypeUsageAddOn</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/johnligt/ContentTypeUsageAddOn</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Copyright>John Ligtenberg 2024</Copyright>
+		<Description>AddOn for Optimizely CMS 12 to list the usage of content types</Description>
+		<AssemblyVersion>0.1.0.1</AssemblyVersion>
+		<FileVersion>0.1.0.1</FileVersion>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="module.config">
+			<Pack>true</Pack>
+			<PackagePath>contentFiles\module.config</PackagePath>
+		</None>
+		<None Include="msbuild\copyfiles.targets">
+			<Pack>true</Pack>
+			<PackagePath>build\$(MSBuildProjectName).targets</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="EPiServer.CMS.UI.Core" Version="12.31.2" />
+	</ItemGroup>
+
+</Project>
