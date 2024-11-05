@@ -1,3 +1,3 @@
-# Optimizely AddOn Template
+# Optimizely 12 Contenttype Usage Addon
 
-A template for creating Optimizely AddOns.
+An addon for Optimizely 12, to list the pages and blocks using a selected contenttype
