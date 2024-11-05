@@ -5,18 +5,18 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-		<Title>Optimizely ContentType Usage add-on</Title>
-		<Version>0.1.0.1</Version>
-		<PackageReleaseNotes>ContentType Usage add-on for Optimizely CMS 12</PackageReleaseNotes>
+		<Title>Optimizely ContentType Usage Addon</Title>
+		<Version>0.1.0.2</Version>
+		<PackageReleaseNotes>ContentType Usage Addon for Optimizely CMS 12</PackageReleaseNotes>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>Optimizely</PackageTags>
 		<RepositoryUrl>https://github.com/johnligt/ContentTypeUsageAddOn</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/johnligt/ContentTypeUsageAddOn</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Copyright>John Ligtenberg 2024</Copyright>
-		<Description>AddOn for Optimizely CMS 12 to list the usage of content types</Description>
-		<AssemblyVersion>0.1.0.1</AssemblyVersion>
-		<FileVersion>0.1.0.1</FileVersion>
+		<Description>AddOn for Optimizely CMS 12 to list pages and blocks using a selected content type</Description>
+		<AssemblyVersion>0.1.0.2</AssemblyVersion>
+		<FileVersion>0.1.0.2</FileVersion>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
