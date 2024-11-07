@@ -1,6 +1,7 @@
 # Optimizely 12 Contenttype Usage Addon
 
 An addon for Optimizely 12, to list the pages and blocks using a selected contenttype.
+The items in the list link directly to the pages and blocks.
 
 ![contenttypelist](https://github.com/user-attachments/assets/64087b86-a7ac-45c4-b9a3-665aebbbaebe)
 
