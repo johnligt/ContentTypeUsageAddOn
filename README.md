@@ -2,6 +2,10 @@
 
 An addon for Optimizely 12, to list the pages and blocks using a selected contenttype.
 
+![contenttypelist](https://github.com/user-attachments/assets/64087b86-a7ac-45c4-b9a3-665aebbbaebe)
+
+![usagelist](https://github.com/user-attachments/assets/a029cc1a-1ad1-4826-816f-a8bd64628a17)
+
 Add 
 ```services.AddContentTypeUsage(); ``` 
 to Startup.cs ConfigureServices
