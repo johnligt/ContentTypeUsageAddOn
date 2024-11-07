@@ -1,10 +1,12 @@
 using AlloyTest.Extensions;
+using ContentTypeUsage;
 using ContentTypeUsage.ServiceExtensions;
 using EPiServer.Cms.Shell;
 using EPiServer.Cms.UI.AspNetIdentity;
 using EPiServer.Scheduler;
 using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AlloyTest;
 
@@ -42,8 +44,18 @@ public class Startup
             options.Cookie.HttpOnly = true;
             options.Cookie.IsEssential = true;
         });
+
+        var allowedRoles = new List<string> { "CmsAdmins", "Administrator", "WebAdmins", "WebEditors" };
         
-        services.AddContentTypeUsage();
+        var action = new Action<AuthorizationOptions>(authorizationOptions =>
+        {
+            authorizationOptions.AddPolicy(ContentTypeUsageConstants.AuthorizationPolicy, policy =>
+            {
+                policy.RequireRole(allowedRoles);
+            });
+        });
+
+        services.AddContentTypeUsage(action);
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
