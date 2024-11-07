@@ -44,10 +44,10 @@ public class Startup
             options.Cookie.HttpOnly = true;
             options.Cookie.IsEssential = true;
         });
-
+        
         var allowedRoles = new List<string> { "CmsAdmins", "Administrator", "WebAdmins", "WebEditors" };
         
-        var action = new Action<AuthorizationOptions>(authorizationOptions =>
+        var authorizationOptionsAction = new Action<AuthorizationOptions>(authorizationOptions =>
         {
             authorizationOptions.AddPolicy(ContentTypeUsageConstants.AuthorizationPolicy, policy =>
             {
@@ -55,7 +55,9 @@ public class Startup
             });
         });
 
-        services.AddContentTypeUsage(action);
+        // Adding specific authorization options is only required if the default
+        // of { "CmsAdmins", "Administrator", "WebAdmins"} is not enough.
+        services.AddContentTypeUsage(authorizationOptionsAction);
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
